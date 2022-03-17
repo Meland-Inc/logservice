@@ -36,7 +36,7 @@ type Log struct {
 }
 
 func printJSON(v interface{}) {
-	b, err := json.MarshalIndent(v, "", "  ")
+	b, err := json.Marshal(v)
 
 	if err != nil {
 		fmt.Println(err)

@@ -17,6 +17,7 @@ spec:
         {{- if .Values.dapr.enabled }}
         dapr.io/enabled: "false"
         dapr.io/app-protocol: "grpc"
+        dapr.io/log-as-json: "true"
         dapr.io/app-id: {{ .Values.dapr.appId | default .Chart.Name | quote }}
         dapr.io/app-port: {{ .Values.dapr.containerPort | quote }}
         {{- end }}

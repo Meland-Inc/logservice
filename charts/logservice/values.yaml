@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/sword-g
+  repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/logservice
   pullPolicy: IfNotPresent
-  tag: 91bc606f6de5913d778998f6c2f4eecb565306ef
+  tag: a2aba976964cc725fd50bdf28dead4fb8ebc0762
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -24,15 +24,6 @@ service:
   port: 8080
 
 containerPort: 8080
-
-ingress:
-  enabled: true
-  annotations: 
-    kubernetes.io/ingress.class: nginx
-  hosts:
-    - host: g-dev.melandworld.com
-      path: /
-  tls: []
 
 resources: 
   limits:

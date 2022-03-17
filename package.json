@@ -6,7 +6,7 @@
   "scripts": {
     "start": "export $(cat .env | xargs) && go run main.go",
     "build:x": "export $(cat .env | xargs) && bash ./scripts/buildx.sh",
-    "deploy:dev": "helm upgrade sword-g-service ./charts/g -n dev --values ./charts/g/dev.yaml --install",
+    "deploy:dev": "helm upgrade logservice ./charts/logservice -n dev --values ./charts/logservice/dev.yaml --install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
