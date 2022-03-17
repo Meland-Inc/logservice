@@ -30,6 +30,7 @@ type Log struct {
 	TraceDuration  string  `json:"traceDuration"`
 	Scope          string  `json:"scope"`
 	Client         string  `json:"client"`
+	ClientId       string  `json:"clientId"`
 	UserId         string  `json:"userId"`
 	UserEthAddress *string `json:"userEthAddress,omitempty"`
 	Version        string  `json:"version"`
