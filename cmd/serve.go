@@ -35,6 +35,10 @@ type Log struct {
 	Version        string  `json:"version"`
 }
 
+type RequestX struct {
+	Content []Log `json:"content"`
+}
+
 func printJSON(v interface{}) {
 	b, err := json.Marshal(v)
 
@@ -63,8 +67,8 @@ func Serve(c *cli.Context) error {
 
 	/// All you need to do here is to print out the logs, which are automatically collected by the cluster collector
 	mux.HandleFunc("/batch-logs", func(rw http.ResponseWriter, r *http.Request) {
-		var logs []Log
-		err := json.NewDecoder(r.Body).Decode(&logs)
+		var c RequestX
+		err := json.NewDecoder(r.Body).Decode(&c)
 
 		if err != nil {
 			printJSON(map[string]string{
@@ -74,7 +78,7 @@ func Serve(c *cli.Context) error {
 			return
 		}
 
-		for _, log := range logs {
+		for _, log := range c.Content {
 			if log.UserId != "" {
 				o, e := invoke.GetUserWeb3Profile(log.UserId)
 

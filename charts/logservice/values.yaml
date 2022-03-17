@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/logservice
   pullPolicy: IfNotPresent
-  tag: a2aba976964cc725fd50bdf28dead4fb8ebc0762
+  tag: 19a15f81782f3e1e2f39823e64d5c9417712c9b6
 
 serviceAccount:
   # Specifies whether a service account should be created
