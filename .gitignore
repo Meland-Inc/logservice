@@ -1,0 +1,4 @@
+.env
+charts/logservice/release.yaml
+charts/logservice/dev.yaml
+.DS_Store

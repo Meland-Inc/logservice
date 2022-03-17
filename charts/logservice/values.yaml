@@ -1,0 +1,53 @@
+# Default values for bellplanet-g.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/sword-g
+  pullPolicy: IfNotPresent
+  tag: 91bc606f6de5913d778998f6c2f4eecb565306ef
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+service:
+  # omnibus 注入
+  # 默认是 release_name
+  name: x
+  type: ClusterIP
+  port: 8080
+
+containerPort: 8080
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: g-dev.melandworld.com
+      path: /
+  tls: []
+
+resources: 
+  limits:
+    cpu: 1
+    memory: 500Mi
+
+### 默认情况下，不需要开启，大世界服才需要开启
+dapr:
+  appId: web3-service
+  enabled: true
+  containerPort: 8080
+
+### 扩展环境变量.
+### 用于支持 omnibus 传入统一的环境变量
+extEnvs:
+  MODE:
+    - name: MODE
+      value: "dev"

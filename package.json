@@ -1,0 +1,16 @@
+{
+  "name": "logservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "export $(cat .env | xargs) && go run main.go",
+    "build:x": "export $(cat .env | xargs) && bash ./scripts/buildx.sh",
+    "deploy:dev": "helm upgrade sword-g-service ./charts/g -n dev --values ./charts/g/dev.yaml --install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
