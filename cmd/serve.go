@@ -75,6 +75,7 @@ func Serve(c *cli.Context) error {
 				"error": err.Error(),
 				"scope": "batch-logs",
 			})
+			rw.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 

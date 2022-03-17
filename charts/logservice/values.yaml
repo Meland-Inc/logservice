@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/logservice
   pullPolicy: IfNotPresent
-  tag: 19a15f81782f3e1e2f39823e64d5c9417712c9b6
+  tag: d50d445ade5ff5a09f7e82efb8b61fb924706577
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -32,7 +32,7 @@ resources:
 
 ### 默认情况下，不需要开启，大世界服才需要开启
 dapr:
-  appId: web3-service
+  appId: log-service
   enabled: true
   containerPort: 8080
 
